@@ -1,0 +1,17 @@
+version: '3.8'
+
+volumes:
+  datafiles:
+
+services:
+  website:
+    container_name: ottonova-php74
+    volumes:
+      - ./src:/var/www/html
+    working_dir: /var/www/html
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+      - 8083:443
