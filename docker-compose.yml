@@ -7,7 +7,7 @@ services:
   website:
     container_name: ottonova-php74
     volumes:
-      - ./src:/var/www/html
+      - .:/var/www/html
     working_dir: /var/www/html
     build:
       context: .
@@ -15,3 +15,4 @@ services:
     ports:
       - 8080:80
       - 8083:443
+    restart: unless-stopped

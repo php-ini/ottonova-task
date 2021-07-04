@@ -1,0 +1,29 @@
+{
+  "name": "php-ini/ottonova-task",
+  "description": "Ottonova PHP Challenge Task",
+  "license": "MIT",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Mahmoud Abdelsattar",
+      "email": "jinkazama_m@yahoo.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "VacationCalculator\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+
+    }
+  }
+}
