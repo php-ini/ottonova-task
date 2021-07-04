@@ -76,5 +76,4 @@ class Employee
         $this->specialContractDays = $specialContractDays;
     }
 
-
 }
