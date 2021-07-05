@@ -11,10 +11,10 @@ use VacationCalculator\Ottivo\Handler\EmployeeVacationDays\EmployeeVacationDaysH
 
 class VacationDaysCalculatorService
 {
-    private $employee;
-    private $year;
-    private $vacationDaysHandler;
-    private $remainingContractMonths;
+    private Employee $employee;
+    private int $year;
+    private EmployeeVacationDaysHandlerInterface $vacationDaysHandler;
+    private int $remainingContractMonths;
 
     /**
      * VacationDaysCalculatorService constructor.
@@ -38,12 +38,12 @@ class VacationDaysCalculatorService
         return round($baseVacationDays * ($this->remainingContractMonths / 12)) + $bonusVacationDays;
     }
 
-    private function getBonusVacationDays(): int
+    public function getBonusVacationDays(): int
     {
         return (new OldEmployeeVacationDays())->getVacationDays($this->employee, $this->year);
     }
 
-    private function getVacationDaysHandler(): EmployeeVacationDaysHandlerInterface
+    public function getVacationDaysHandler(): EmployeeVacationDaysHandlerInterface
     {
         if (!is_null($this->employee->getSpecialContractDays())) {
             return new SpecialEmployeeVacationDays();
