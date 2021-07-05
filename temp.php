@@ -1,12 +1,16 @@
 <?php
+/**
+ * This is a temporary php file to test the development cycle
+ * @deprecated
+ */
 
 require __DIR__ . '/vendor/autoload.php';
 
 use VacationCalculator\Ottivo\Service\VacationDaysCalculatorService;
 use VacationCalculator\Ottivo\Repository\EmployeeRepository;
-echo '<pre>';
+
 $employeesList = (new EmployeeRepository())->getAll();
-//dd($employeesList);
+
 foreach($employeesList as $employee) {
     $vacationDaysCalculatorService = new VacationDaysCalculatorService($employee, 2001);
     $days = $vacationDaysCalculatorService->calculateTotalVacationDays();
