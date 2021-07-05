@@ -7,7 +7,7 @@ use VacationCalculator\Ottivo\Entity\Employee;
 
 class EmployeeRepository
 {
-    const EMPLOYEES_SEEDER_FILE = __DIR__ . '../../Seeder/Employees/List.php';
+    const EMPLOYEES_SEEDER_FILE = __DIR__ . '/../../Ottivo/Seeder/Employees/List.php';
 
     private $employees = [];
 
