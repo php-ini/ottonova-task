@@ -26,7 +26,7 @@ class EmployeeRepository
 
         foreach ($employeesList as $employeeInfo) {
             $employee = new Employee();
-            $employee->setFullName($employeeInfo['name']);
+            $employee->setFullName($employeeInfo['fullName']);
             $employee->setDob($employeeInfo['dob']);
             $employee->setContractStartDate($employeeInfo['contractStartDate']);
             $employee->setSpecialContractDays($employeeInfo['specialContractDays']);
