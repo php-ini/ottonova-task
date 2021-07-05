@@ -76,4 +76,13 @@ class Employee
         $this->specialContractDays = $specialContractDays;
     }
 
+    public function getEmployeeAgeInYears(int $year): int
+    {
+        $birthDate = new \DateTime($this->getDob());
+        $now = new \DateTime($year . '-01-01');
+        $difference = $now->diff($birthDate);
+
+        return $difference->y;
+    }
+
 }
