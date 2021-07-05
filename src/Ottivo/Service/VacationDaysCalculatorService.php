@@ -27,7 +27,6 @@ class VacationDaysCalculatorService
         $this->year = $year;
         $this->vacationDaysHandler = $this->getVacationDaysHandler();
         $this->remainingContractMonths = $this->getRemainingContractMonths();
-
     }
 
     public function calculateTotalVacationDays()
