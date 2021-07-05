@@ -9,11 +9,27 @@ use VacationCalculator\Ottivo\Handler\EmployeeVacationDays\DefaultEmployeeVacati
 use VacationCalculator\Ottivo\Handler\EmployeeVacationDays\SpecialEmployeeVacationDays;
 use VacationCalculator\Ottivo\Handler\EmployeeVacationDays\EmployeeVacationDaysHandlerInterface;
 
+/**
+ * Class VacationDaysCalculatorService
+ * @package VacationCalculator\Ottivo\Service
+ */
 class VacationDaysCalculatorService
 {
+    /**
+     * @var Employee
+     */
     private Employee $employee;
+    /**
+     * @var int
+     */
     private int $year;
+    /**
+     * @var EmployeeVacationDaysHandlerInterface
+     */
     private EmployeeVacationDaysHandlerInterface $vacationDaysHandler;
+    /**
+     * @var int
+     */
     private int $remainingContractMonths;
 
     /**
@@ -29,6 +45,9 @@ class VacationDaysCalculatorService
         $this->remainingContractMonths = $this->getRemainingContractMonths();
     }
 
+    /**
+     * @return float|int
+     */
     public function calculateTotalVacationDays()
     {
         $baseVacationDays = $this->vacationDaysHandler->getVacationDays($this->employee, $this->year);
@@ -37,11 +56,17 @@ class VacationDaysCalculatorService
         return round($baseVacationDays * ($this->remainingContractMonths / 12)) + $bonusVacationDays;
     }
 
+    /**
+     * @return int
+     */
     public function getBonusVacationDays(): int
     {
         return (new OldEmployeeVacationDays())->getVacationDays($this->employee, $this->year);
     }
 
+    /**
+     * @return EmployeeVacationDaysHandlerInterface
+     */
     public function getVacationDaysHandler(): EmployeeVacationDaysHandlerInterface
     {
         if (!is_null($this->employee->getSpecialContractDays())) {
@@ -51,6 +76,10 @@ class VacationDaysCalculatorService
         return new DefaultEmployeeVacationDays();
     }
 
+    /**
+     * @return int
+     * @throws \Exception
+     */
     private function getRemainingContractMonths(): int
     {
         $startContractDate = new \DateTime($this->employee->getContractStartDate());

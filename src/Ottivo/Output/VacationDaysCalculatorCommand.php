@@ -12,6 +12,10 @@ use VacationCalculator\Ottivo\Repository\EmployeeRepository;
 use VacationCalculator\Ottivo\Service\VacationDaysCalculatorService;
 use VacationCalculator\Ottivo\Handler\EmployeeVacationDays\DefaultEmployeeVacationDays;
 
+/**
+ * Class VacationDaysCalculatorCommand
+ * @package VacationCalculator\Ottivo\Output
+ */
 class VacationDaysCalculatorCommand extends Command
 {
     const YEAR_ARGUMENT_INPUT = 'year';
@@ -31,6 +35,11 @@ class VacationDaysCalculatorCommand extends Command
             ->addArgument(self::YEAR_ARGUMENT_INPUT, InputArgument::REQUIRED, self::COMMAND_ARGUMENT_DESCRIPTION);
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $yearInput = (int)$input->getArgument(self::YEAR_ARGUMENT_INPUT);
@@ -52,6 +61,11 @@ class VacationDaysCalculatorCommand extends Command
         return 0;
     }
 
+    /**
+     * @param array $employeesList
+     * @param int $yearInput
+     * @param OutputInterface $output
+     */
     private function renderEmployeesDaysAsTableOutput(array $employeesList, int $yearInput, OutputInterface $output): void
     {
         $output->writeln(sprintf(self::OUTPUT_FIRST_LINE_TEXT, $yearInput));
@@ -67,6 +81,11 @@ class VacationDaysCalculatorCommand extends Command
         $table->render();
     }
 
+    /**
+     * @param array $employeesList
+     * @param int $yearInput
+     * @return array
+     */
     public function getEmployeesVacationDays(array $employeesList, int $yearInput): array
     {
         $employeesDaysArray = [];

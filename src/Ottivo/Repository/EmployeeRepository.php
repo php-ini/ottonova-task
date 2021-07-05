@@ -5,11 +5,18 @@ namespace VacationCalculator\Ottivo\Repository;
 
 use VacationCalculator\Ottivo\Entity\Employee;
 
+/**
+ * Class EmployeeRepository
+ * @package VacationCalculator\Ottivo\Repository
+ */
 class EmployeeRepository
 {
     const EMPLOYEES_SEEDER_FILE = __DIR__ . '/../../Ottivo/Seeder/Employees/List.php';
 
-    private $employees = [];
+    /**
+     * @var array
+     */
+    private array $employees = [];
 
     /**
      * EmployeeRepository constructor.

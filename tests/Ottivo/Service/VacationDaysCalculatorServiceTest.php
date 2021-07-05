@@ -9,10 +9,17 @@ use VacationCalculator\Ottivo\Handler\EmployeeVacationDays\DefaultEmployeeVacati
 use VacationCalculator\Ottivo\Handler\EmployeeVacationDays\SpecialEmployeeVacationDays;
 use VacationCalculator\Ottivo\Service\VacationDaysCalculatorService;
 
+/**
+ * Class VacationDaysCalculatorServiceTest
+ * @package VacationCalculator\Tests\Ottivo\Entity
+ */
 class VacationDaysCalculatorServiceTest extends TestCase
 {
 
-    private $employeeEntity;
+    /**
+     * @var Employee
+     */
+    private ?Employee $employeeEntity;
 
     public function setUp(): void
     {

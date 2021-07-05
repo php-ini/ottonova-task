@@ -9,11 +9,24 @@ use Symfony\Component\Console\Tester\CommandTester;
 use VacationCalculator\Ottivo\Output\VacationDaysCalculatorCommand;
 use VacationCalculator\Ottivo\Repository\EmployeeRepository;
 
+/**
+ * Class VacationDaysCalculatorCommandTest
+ * @package VacationCalculator\Tests\Ottivo\Output
+ */
 class VacationDaysCalculatorCommandTest extends TestCase
 {
-    private $applocation;
+    /**
+     * @var
+     */
+    private ?Application $applocation;
+    /**
+     * @var mixed|\Symfony\Component\Console\Command\Command
+     */
     private $command;
-    private $commandTester;
+    /**
+     * @var CommandTester
+     */
+    private ?CommandTester $commandTester;
 
     public function setUp(): void
     {

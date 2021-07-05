@@ -7,9 +7,16 @@ use PHPUnit\Framework\TestCase;
 use VacationCalculator\Ottivo\Entity\Employee;
 use VacationCalculator\Ottivo\Repository\EmployeeRepository;
 
+/**
+ * Class EmployeeRepositoryTest
+ * @package VacationCalculator\Tests\Ottivo\Repository
+ */
 class EmployeeRepositoryTest extends TestCase
 {
-    private $employeeRepository;
+    /**
+     * @var EmployeeRepository
+     */
+    private ?EmployeeRepository $employeeRepository;
 
 
     public function setUp(): void

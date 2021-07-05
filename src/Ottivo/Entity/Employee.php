@@ -4,12 +4,27 @@ declare(strict_types=1);
 namespace VacationCalculator\Ottivo\Entity;
 
 
+/**
+ * Class Employee
+ * @package VacationCalculator\Ottivo\Entity
+ */
 class Employee
 {
-
+    /**
+     * @var
+     */
     private $fullName;
+    /**
+     * @var
+     */
     private $dob;
+    /**
+     * @var
+     */
     private $contractStartDate;
+    /**
+     * @var
+     */
     private $specialContractDays;
 
     /**
@@ -76,6 +91,11 @@ class Employee
         $this->specialContractDays = $specialContractDays;
     }
 
+    /**
+     * @param int $year
+     * @return int
+     * @throws \Exception
+     */
     public function getEmployeeAgeInYears(int $year): int
     {
         $birthDate = new \DateTime($this->getDob());

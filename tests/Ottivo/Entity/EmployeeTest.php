@@ -6,12 +6,31 @@ namespace VacationCalculator\Tests\Ottivo\Entity;
 use PHPUnit\Framework\TestCase;
 use VacationCalculator\Ottivo\Entity\Employee;
 
+/**
+ * Class EmployeeTest
+ * @package VacationCalculator\Tests\Ottivo\Entity
+ */
 class EmployeeTest extends TestCase
 {
+    /**
+     * @var Employee
+     */
     private $employeeEntity;
+    /**
+     * @var string
+     */
     private $name;
+    /**
+     * @var string
+     */
     private $dob;
+    /**
+     * @var string
+     */
     private $startDate;
+    /**
+     * @var null
+     */
     private $specialContractDays;
 
     public function setUp(): void

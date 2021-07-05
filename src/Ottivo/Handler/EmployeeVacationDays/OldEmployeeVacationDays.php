@@ -6,11 +6,21 @@ namespace VacationCalculator\Ottivo\Handler\EmployeeVacationDays;
 
 use VacationCalculator\Ottivo\Entity\Employee;
 
+/**
+ * Class OldEmployeeVacationDays
+ * @package VacationCalculator\Ottivo\Handler\EmployeeVacationDays
+ */
 class OldEmployeeVacationDays implements EmployeeVacationDaysHandlerInterface
 {
     const THRESHOLD_AGE_FOR_BONUS = 30;
     const THRESHOLD_YEARS_FOR_EXTRA_DAY = 5;
 
+    /**
+     * @param Employee $employee
+     * @param int $year
+     * @return int
+     * @throws \Exception
+     */
     public function getVacationDays(Employee $employee, int $year): int
     {
         $today = new \DateTime($year . '-01-01');
