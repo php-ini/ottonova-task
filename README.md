@@ -24,7 +24,12 @@ A simple project to calculate the total employees vacation days based on multipl
 - Now you are inside the container, so you can run the command to get the vacation days results.
 
 ## The Command example:
+- From inside the docker container:
+
 ```./bin/console vacationdays:calc 2021```
+- From outside the docker container:
+  
+`docker exec ottonova-php74 bash -lc './bin/console vacationdays:calc 2021'`
 
 ## The unit testing command:
 ```./vendor/bin/phpunit```
